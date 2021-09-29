@@ -80,10 +80,16 @@ if __name__ == '__main__':
             print(f'一共搜索到{len(list)}本书')
             print(pd.DataFrame(list))
             num = input('请输入你要下载的小说序号： ')
-            # 序号对应的就是列表里面的索引位置
-            href = list[int(num)]['链接']
-            print(href)
-            get_novel_content(href)
-            print(f"{list[int(num)]['书名']}已经下载完成了！")
+            try:
+                if 0 <= int(num) < (len(trs)-1): # 长度要减去标题多余的一行
+                    # 序号对应的就是列表里面的索引位置
+                    href = list[int(num)]['链接']
+                    print(href)
+                    get_novel_content(href)
+                    print(f"{list[int(num)]['书名']}已经下载完成了！")
+                else:
+                    print("输入的序号不存在！")
+            except ValueError:
+                print("输入的序号不正确，请输入数字序号!")
         else:
             print("抱歉，搜索没有结果...")
