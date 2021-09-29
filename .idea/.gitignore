@@ -1,6 +1,7 @@
 ##ignore this file##
 /target/
 /.idea/
+.idea/workspace.xml
 /.settings/
 /.vscode/
 /bin/
